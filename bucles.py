@@ -15,3 +15,14 @@ def inputnumber():
     print("Correcto.")
 
 
+def devuelve(*varios):
+    """Se le da una lista como argumento y muestra los elementos."""
+
+    for elemento in varios:
+        yield elemento
+
+#eco = devuelve(lista)
+#print(next(eco))
+#print(next(eco))
+#print(next(eco))
+

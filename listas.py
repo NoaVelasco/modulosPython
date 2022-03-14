@@ -2,6 +2,9 @@
 # Copyright (c) 2022, Noa Velasco
 
 
+from random import randint
+
+
 def replindex(lista):
     """Str. Cambiar el elemento de una lista mediante su número indexado"""
     
@@ -112,7 +115,6 @@ def elemIndex(lista):
         print(f"{lista[i]} = [{i}]")
 
 
-
 def cuantoshay(lista, buscar):
     """Con una lista dada, encuentra las veces que aparece un elemento"""
 
@@ -122,3 +124,19 @@ def cuantoshay(lista, buscar):
             numveces += 1
     print("Número de coincidencias:", numveces)
 
+
+def generaNums():
+    """
+    Se da un límite para generar números aleatorios
+    y crea una lista con ellos tan extensa como se especifique.
+    """
+
+    cont = 1
+    miLista = []
+    limite = int(input("Rango de 1 a"))
+    extension = int(input("Extensión de la lista"))
+
+    while cont < extension:
+        miLista.append(randint(1, limite))
+        cont = cont+1
+    return miLista
