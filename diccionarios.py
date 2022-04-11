@@ -10,5 +10,3 @@ def dictiozip(listaClaves, listaValores):
     diccionario = {clave: valor for (
         clave, valor) in zip(listaClaves, listaValores)}
     return diccionario
-
-

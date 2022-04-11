@@ -10,17 +10,24 @@ import re
 archivo = input("Introduce nombre con extensión del archivo: ")
 #archivo=("fechas.txt")
 
-meses = {"01": "enero", "02": "febrero", "03": "marzo", "04": "abril", "05": "mayo", "06": "junio",
-         "07": "julio", "08": "agosto", "09": "septiembre", "10": "octubre", "11": "noviembre", "12": "diciembre"}
+meses = {"01": "enero", "02": "febrero", "03": "marzo",
+         "04": "abril", "05": "mayo", "06": "junio",
+         "07": "julio", "08": "agosto", "09": "septiembre",
+         "10": "octubre", "11": "noviembre", "12": "diciembre"}
 
 
 def recogeFechas(fecha):
+    """Crea un patrón con las fechas escritas y devuelve una lista."""
     patron = re.compile(r'(\d*) (\w+) (\d{4})')
     creaLista = re.findall(patron, fecha)
     return creaLista
 
 
 def get_key(val):
+    """
+    Compara los meses con los del diccionario.
+    Si coinciden (valores), los pasa a números (claves).
+    """
     for key, value in meses.items():
         if val.lower() == value:
             return key
@@ -28,7 +35,7 @@ def get_key(val):
     return "No es un mes válido"
 
 
-with open(archivo) as f:
+with open(archivo, encoding='utf-8') as f:
     cadenaTexto = f.read()
 
 
@@ -47,6 +54,6 @@ for i in listaFechas:
 
     listaFormat.append(f"{anio}-{mesNum}-{dia}")
 
-string = ''.join([str(item + "\n") for item in listaFormat])
-with open("formato_fechas.txt", "w") as ft:
-    ft.write(string)
+STRING = ''.join([str(item + "\n") for item in listaFormat])
+with open("formato_fechas.txt", "w", encoding="utf-8") as ft:
+    ft.write(STRING)

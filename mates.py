@@ -11,9 +11,9 @@ doble = multiplicador(2)
 triple = multiplicador(3)
 
 
-def fibonacci(n):
+def fibo1(n):
     """Imprime la sucesión desde 0 a tantas veces como n."""
-    
+
     a = 0
     b = 1
 
@@ -29,9 +29,8 @@ def fibonacci(n):
 
     print(0)
     for i in range(2, n):
-        sum = a+b
+        suma = a+b
         a = b
-        b = sum
+        b = suma
         print(a)
     return b
-
