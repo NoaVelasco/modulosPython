@@ -7,13 +7,12 @@ from random import randint
 
 def replindex(lista):
     """Str. Cambiar el elemento de una lista mediante su número indexado"""
-    print(lista)
 
     orden = int(input("index: "))
     valor = input("nuevo valor: ")
 
     lista[orden] = valor
-    print(lista)
+    return lista
 
 
 def replname(lista):
@@ -25,7 +24,7 @@ def replname(lista):
 
     lista[lista.index(buscar)] = valor
 
-    print(lista)
+    return lista
 
 
 def bingo(lista):
@@ -44,9 +43,10 @@ def stats(lista):
     print("Su valor mínimo es", min(lista))
     print("Su valor máximo es", max(lista))
     print("La suma de sus valores es", sum(lista))
-    print("La media de sus valores es", sum(lista)/len(lista)) # numpy.mean()
-    print("El mediano de sus valores es", sorted(lista)[len(lista)//2]) # numpy.median()
-    #por hacer: scipy.stats.mode: el valor más repetido
+    print("La media de sus valores es", sum(lista)/len(lista))  # numpy.mean()
+    print("El mediano de sus valores es", sorted(
+        lista)[len(lista)//2])  # numpy.median()
+    # por hacer: scipy.stats.mode: el valor más repetido
 
 
 def creador():
@@ -89,36 +89,44 @@ def elige(lista, mensaje):
         # mayúsculas:
         #userInput = input(mensaje).upper()
     # números:
-    #while userInput.isdigit() == False:
+    # while userInput.isdigit() == False:
 
     print("Correcto.")
 
+# Mejor usar itemsList()
+# def indexElem(lista):
+#     """Muestra los índices y elementos de una lista."""
+#     contador = 0
+#     for i in lista:
+#         print(f"[{contador}] = {i}")
+#         contador += 1
 
-def indexElem(lista):
-    """Muestra los índices y elementos de una lista."""
-    contador = 0
+
+# Mejor usar itemsList()
+# def elemIndex(lista):
+#     """Muestra los elementos de una lista y sus índices."""
+#     for i in range(len(lista)):
+#         print(f"{lista[i]} = [{i}]")
+
+
+def itemsList(lista):
+    """Imprime los índices y elementos de una lista."""
     for i in lista:
-        print(f"[{contador}] = {i}")
-        contador += 1
+        print(f"[{lista.index(i)}]: {i}")
 
 
-def elemIndex(lista):
-    """Muestra los elementos de una lista y sus índices."""
-    for i in range(len(lista)):
-        print(f"{lista[i]} = [{i}]")
-
-
-def cuantoshay(lista, buscar):
-    """Con una lista dada, encuentra las veces que aparece un elemento"""
-    # También se puede hacer con re.findall:
-    # coincidencias = re.findall(buscar, str(lista))
-    # print("Número de coincidencias:", len(coincidencias))
-    numveces = 0
-    for i in lista:
-        if(i == buscar):
-            numveces += 1
-    # print("Número de coincidencias:", numveces)
-    return numveces
+# Mejor usar lista.count("buscar")
+# def cuantoshay(lista, buscar):
+#     """Con una lista dada, encuentra las veces que aparece un elemento"""
+#     # También se puede hacer con re.findall:
+#     # coincidencias = re.findall(buscar, str(lista))
+#     # print("Número de coincidencias:", len(coincidencias))
+#     numveces = 0
+#     for i in lista:
+#         if(i == buscar):
+#             numveces += 1
+#     # print("Número de coincidencias:", numveces)
+#     return numveces
 
 
 def generaNums():
